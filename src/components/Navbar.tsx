@@ -54,7 +54,6 @@ const Navbar = () => {
                 {[
                   { name: 'Services', href: '#services' },
                   { name: 'Process', href: '#process' },
-                  { name: 'Pricing', href: '#pricing' },
                   { name: 'Contact', href: '#contact' }
                 ].map((item) => (
                   <motion.a
@@ -195,7 +194,7 @@ const Navbar = () => {
         >
           <div className="max-w-7xl mx-auto px-6 py-6">
             <div className="flex flex-col space-y-4">
-              {['Services', 'Process', 'Pricing', 'Contact'].map((item, index) => (
+              {['Services', 'Process', 'Contact'].map((item, index) => (
                 <motion.a
                   key={item}
                   href={`#${item.toLowerCase()}`}

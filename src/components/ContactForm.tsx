@@ -208,8 +208,8 @@ const ContactForm = () => {
                   <MapPin className="w-6 h-6 text-white" />
                 </div>
                 <div>
-                  <p className="text-stone-300 text-sm mb-1">Based in</p>
-                  <p className="text-white font-semibold">United States</p>
+                  <p className="text-stone-300 text-sm mb-1">Global Service</p>
+                  <p className="text-white font-semibold">Worldwide Remote</p>
                 </div>
               </div>
             </div>

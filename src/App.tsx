@@ -3,7 +3,6 @@ import Hero from './components/Hero'
 import Services from './components/Services'
 import Process from './components/Process'
 import WhyChooseUs from './components/WhyChooseUs'
-import Pricing from './components/Pricing'
 import ContactForm from './components/ContactForm'
 import Footer from './components/Footer'
 import ScrollProgress from './components/ScrollProgress'
@@ -26,7 +25,6 @@ function App() {
         <Services />
         <Process />
         <WhyChooseUs />
-        <Pricing />
         <ContactForm />
         <Footer />
       </div>

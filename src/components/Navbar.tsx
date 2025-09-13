@@ -62,6 +62,18 @@ const Navbar = () => {
                     className="relative px-6 py-3 text-neutral-600 hover:text-neutral-900 font-medium transition-colors group text-lg"
                     whileHover={{ y: -2 }}
                     transition={{ type: "spring", stiffness: 400, damping: 30 }}
+                    onClick={(e) => {
+                      const target = document.querySelector(item.href);
+                      if (target) {
+                        e.preventDefault();
+                        const navbarHeight = 96; // Account for fixed navbar height
+                        const targetPosition = target.offsetTop - navbarHeight;
+                        window.scrollTo({
+                          top: targetPosition,
+                          behavior: 'smooth'
+                        });
+                      }
+                    }}
                   >
                     <span className="relative z-10">{item.name}</span>
                     <motion.div
@@ -122,7 +134,7 @@ const Navbar = () => {
 
               {/* Mobile Menu Button with morphing animation */}
               <motion.button
-                className="md:hidden relative w-10 h-10 flex items-center justify-center"
+                className="md:hidden relative w-12 h-12 flex items-center justify-center bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors touch-manipulation"
                 onClick={() => setIsMenuOpen(!isMenuOpen)}
                 whileTap={{ scale: 0.9 }}
                 aria-label={isMenuOpen ? "Close navigation menu" : "Open navigation menu"}
@@ -185,10 +197,7 @@ const Navbar = () => {
               }
             }
           }}
-          className="md:hidden overflow-hidden bg-white/90 backdrop-blur-xl border-b border-neutral-200/50"
-          style={{ 
-            pointerEvents: isMenuOpen ? 'auto' : 'none'
-          }}
+          className={`md:hidden overflow-hidden bg-white/95 backdrop-blur-xl border-b border-neutral-200/50 ${isMenuOpen ? 'pointer-events-auto' : 'pointer-events-none'}`}
           role="navigation"
           aria-label="Mobile navigation menu"
         >
@@ -209,8 +218,21 @@ const Navbar = () => {
                       x: -20 
                     }
                   }}
-                  className="text-neutral-600 hover:text-neutral-900 font-medium py-3 text-lg"
-                  onClick={() => setIsMenuOpen(false)}
+                  className="text-neutral-600 hover:text-neutral-900 font-medium py-4 text-lg border-b border-gray-100 last:border-b-0 -mx-6 px-6 hover:bg-gray-50 transition-colors touch-manipulation"
+                  onClick={(e) => {
+                    setIsMenuOpen(false);
+                    // Smooth scroll to section
+                    const target = document.querySelector(`#${item.toLowerCase()}`);
+                    if (target) {
+                      e.preventDefault();
+                      const navbarHeight = 96; // Account for fixed navbar height
+                      const targetPosition = target.offsetTop - navbarHeight;
+                      window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
+                      });
+                    }
+                  }}
                   whileTap={{ scale: 0.95 }}
                 >
                   {item}
@@ -224,7 +246,7 @@ const Navbar = () => {
                   open: { opacity: 1, y: 0 },
                   closed: { opacity: 0, y: 20 }
                 }}
-                className="bg-gradient-to-r from-accent-800 to-accent-700 text-white px-6 py-2.5 rounded-xl font-medium mt-4 text-left shadow-lg inline-block"
+                className="bg-gradient-to-r from-navy-800 to-navy-900 text-white px-6 py-4 rounded-xl font-medium mt-4 text-center shadow-lg block hover:from-navy-900 hover:to-navy-950 transition-colors touch-manipulation"
                 whileTap={{ scale: 0.95 }}
               >
                 Get Started

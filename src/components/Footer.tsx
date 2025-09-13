@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { Mail, Linkedin, Twitter, Github } from 'lucide-react';
+import { Mail, Twitter } from 'lucide-react';
 
 const Footer = () => {
   return (
@@ -70,9 +70,7 @@ const Footer = () => {
             {/* Social links */}
             <div className="flex space-x-6">
               {[
-                { icon: Linkedin, href: '#', label: 'LinkedIn' },
-                { icon: Twitter, href: '#', label: 'Twitter' },
-                { icon: Github, href: '#', label: 'GitHub' }
+                { icon: Twitter, href: 'https://x.com/Azharailab', label: 'Twitter' }
               ].map((social) => (
                 <motion.a
                   key={social.label}

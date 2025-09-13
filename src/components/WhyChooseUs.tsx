@@ -126,18 +126,18 @@ const WhyChooseUs = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="bg-navy-800 rounded-3xl p-12 shadow-2xl"
+          className="bg-navy-800 rounded-3xl p-6 sm:p-8 lg:p-12 shadow-2xl"
         >
-          <div className="text-center mb-12">
-            <h3 className="text-3xl lg:text-4xl font-bold text-white mb-4">
+          <div className="text-center mb-8 sm:mb-12">
+            <h3 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white mb-3 sm:mb-4">
               Our Track Record
             </h3>
-            <p className="text-stone-300 text-lg max-w-2xl mx-auto">
+            <p className="text-stone-300 text-base sm:text-lg max-w-2xl mx-auto px-4 sm:px-0">
               Numbers don't lie. Here's what we've accomplished for startups like yours.
             </p>
           </div>
           
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
             {stats.map((stat, index) => (
               <motion.div
                 key={stat.label}
@@ -148,14 +148,14 @@ const WhyChooseUs = () => {
                 className="text-center group cursor-pointer"
                 whileHover={{ scale: 1.05 }}
               >
-                <div className="relative p-6 rounded-2xl bg-white/5 hover:bg-white/10 transition-all duration-300 border border-white/10">
-                  <div className="text-4xl lg:text-5xl font-black text-copper-300 mb-3 group-hover:text-copper-200 transition-colors">
+                <div className="relative p-4 sm:p-6 rounded-2xl bg-white/5 hover:bg-white/10 transition-all duration-300 border border-white/10">
+                  <div className="text-3xl sm:text-4xl lg:text-5xl font-black text-copper-300 mb-2 sm:mb-3 group-hover:text-copper-200 transition-colors">
                     {stat.number}
                   </div>
-                  <div className="text-white font-semibold mb-1">
+                  <div className="text-white font-semibold mb-1 text-sm sm:text-base">
                     {stat.label}
                   </div>
-                  <div className="text-stone-400 text-sm">
+                  <div className="text-stone-400 text-xs sm:text-sm leading-tight">
                     {stat.sublabel}
                   </div>
                 </div>

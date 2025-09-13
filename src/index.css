@@ -11,6 +11,7 @@
     font-variant-numeric: tabular-nums;
     font-optical-sizing: auto;
     scroll-behavior: smooth;
+    scroll-padding-top: 6rem; /* Account for fixed navbar */
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;

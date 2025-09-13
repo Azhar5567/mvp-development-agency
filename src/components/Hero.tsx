@@ -1,6 +1,16 @@
 import { motion } from 'framer-motion';
+import { useEffect } from 'react';
 
 const Hero = () => {
+  // Ensure page starts at top after animations complete
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }, 1600); // After all animations complete (0.8s delay + 0.8s duration)
+
+    return () => clearTimeout(timer);
+  }, []);
+
   return (
     <motion.section
       className="relative min-h-screen bg-stone-50 pt-20"
@@ -12,7 +22,7 @@ const Hero = () => {
           <div>
             {/* Available badge */}
             <motion.div
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: -20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
               className="mb-12"
@@ -24,7 +34,7 @@ const Hero = () => {
 
             {/* Main heading */}
             <motion.div
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: -20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
               className="mb-8"
@@ -43,7 +53,7 @@ const Hero = () => {
 
             {/* Description */}
             <motion.p
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: -20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.6 }}
               className="text-lg sm:text-xl text-stone-600 mb-8 sm:mb-10 max-w-2xl mx-auto leading-relaxed px-4 sm:px-0"
@@ -53,7 +63,7 @@ const Hero = () => {
 
             {/* CTA Button */}
             <motion.div
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: -20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.8 }}
               className="flex justify-center"

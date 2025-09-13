@@ -203,41 +203,90 @@ const Navbar = () => {
         >
           <div className="max-w-7xl mx-auto px-6 py-6">
             <div className="flex flex-col space-y-4">
-              {['Services', 'Process', 'Contact'].map((item, index) => (
-                <motion.a
-                  key={item}
-                  href={`#${item.toLowerCase()}`}
-                  variants={{
-                    open: { 
-                      opacity: 1, 
-                      x: 0,
-                      transition: { delay: index * 0.1 }
-                    },
-                    closed: { 
-                      opacity: 0, 
-                      x: -20 
-                    }
-                  }}
-                  className="text-neutral-600 hover:text-neutral-900 font-medium py-4 text-lg border-b border-gray-100 last:border-b-0 -mx-6 px-6 hover:bg-gray-50 transition-colors touch-manipulation"
-                  onClick={(e) => {
-                    setIsMenuOpen(false);
-                    // Smooth scroll to section
-                    const target = document.querySelector(`#${item.toLowerCase()}`) as HTMLElement;
-                    if (target) {
-                      e.preventDefault();
-                      const navbarHeight = 96; // Account for fixed navbar height
-                      const targetPosition = target.offsetTop - navbarHeight;
+              <motion.button
+                type="button"
+                variants={{
+                  open: { opacity: 1, x: 0, transition: { delay: 0 } },
+                  closed: { opacity: 0, x: -20 }
+                }}
+                className="text-neutral-600 hover:text-neutral-900 font-medium py-4 text-lg border-b border-gray-100 -mx-6 px-6 hover:bg-gray-50 transition-colors touch-manipulation text-left w-full"
+                onClick={() => {
+                  setIsMenuOpen(false);
+                  setTimeout(() => {
+                    const servicesSection = document.getElementById('services');
+                    if (servicesSection) {
+                      const navbarHeight = 96;
+                      const elementPosition = servicesSection.offsetTop;
+                      const offsetPosition = elementPosition - navbarHeight;
                       window.scrollTo({
-                        top: targetPosition,
+                        top: offsetPosition,
                         behavior: 'smooth'
                       });
+                    } else {
+                      console.log('Services section not found');
                     }
-                  }}
-                  whileTap={{ scale: 0.95 }}
-                >
-                  {item}
-                </motion.a>
-              ))}
+                  }, 100);
+                }}
+                whileTap={{ scale: 0.95 }}
+              >
+                Services
+              </motion.button>
+              <motion.button
+                type="button"
+                variants={{
+                  open: { opacity: 1, x: 0, transition: { delay: 0.1 } },
+                  closed: { opacity: 0, x: -20 }
+                }}
+                className="text-neutral-600 hover:text-neutral-900 font-medium py-4 text-lg border-b border-gray-100 -mx-6 px-6 hover:bg-gray-50 transition-colors touch-manipulation text-left w-full"
+                onClick={() => {
+                  setIsMenuOpen(false);
+                  setTimeout(() => {
+                    const processSection = document.getElementById('process');
+                    if (processSection) {
+                      const navbarHeight = 96;
+                      const elementPosition = processSection.offsetTop;
+                      const offsetPosition = elementPosition - navbarHeight;
+                      window.scrollTo({
+                        top: offsetPosition,
+                        behavior: 'smooth'
+                      });
+                    } else {
+                      console.log('Process section not found');
+                    }
+                  }, 100);
+                }}
+                whileTap={{ scale: 0.95 }}
+              >
+                Process
+              </motion.button>
+              <motion.button
+                type="button"
+                variants={{
+                  open: { opacity: 1, x: 0, transition: { delay: 0.2 } },
+                  closed: { opacity: 0, x: -20 }
+                }}
+                className="text-neutral-600 hover:text-neutral-900 font-medium py-4 text-lg border-b border-gray-100 last:border-b-0 -mx-6 px-6 hover:bg-gray-50 transition-colors touch-manipulation text-left w-full"
+                onClick={() => {
+                  setIsMenuOpen(false);
+                  setTimeout(() => {
+                    const contactSection = document.getElementById('contact');
+                    if (contactSection) {
+                      const navbarHeight = 96;
+                      const elementPosition = contactSection.offsetTop;
+                      const offsetPosition = elementPosition - navbarHeight;
+                      window.scrollTo({
+                        top: offsetPosition,
+                        behavior: 'smooth'
+                      });
+                    } else {
+                      console.log('Contact section not found');
+                    }
+                  }, 100);
+                }}
+                whileTap={{ scale: 0.95 }}
+              >
+                Contact
+              </motion.button>
               <motion.a
                 href="https://cal.com/mvpcatalyst"
                 target="_blank"

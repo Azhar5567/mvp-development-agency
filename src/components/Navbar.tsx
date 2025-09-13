@@ -63,7 +63,7 @@ const Navbar = () => {
                     whileHover={{ y: -2 }}
                     transition={{ type: "spring", stiffness: 400, damping: 30 }}
                     onClick={(e) => {
-                      const target = document.querySelector(item.href);
+                      const target = document.querySelector(item.href) as HTMLElement;
                       if (target) {
                         e.preventDefault();
                         const navbarHeight = 96; // Account for fixed navbar height
@@ -222,7 +222,7 @@ const Navbar = () => {
                   onClick={(e) => {
                     setIsMenuOpen(false);
                     // Smooth scroll to section
-                    const target = document.querySelector(`#${item.toLowerCase()}`);
+                    const target = document.querySelector(`#${item.toLowerCase()}`) as HTMLElement;
                     if (target) {
                       e.preventDefault();
                       const navbarHeight = 96; // Account for fixed navbar height
